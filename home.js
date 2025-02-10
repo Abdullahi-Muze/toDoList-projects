@@ -4,7 +4,7 @@ let containerHtml=  document.querySelector(".js-containerHtml")
 let pendingNote= document.querySelector("footer")
 let date= document.querySelector(".js-date")
 
-
+abdullahi
 
 let now = new Date();
 let dayNumber = now.getDate().toString().padStart(2, "0"); // 09
@@ -21,7 +21,7 @@ btnAdd.addEventListener("click", ()=>{
 function getList(){
 
     if(inputList.value){
-  
+  s
         listStorage.push(inputList.value)
         // console.log(listStorage)
     
