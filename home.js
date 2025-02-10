@@ -5,6 +5,7 @@ let pendingNote= document.querySelector("footer")
 let date= document.querySelector(".js-date")
 
 
+
 let now = new Date();
 let dayNumber = now.getDate().toString().padStart(2, "0"); // 09
 let dayName = now.toLocaleDateString("en-US", { weekday: "long" }); // "Friday"
@@ -20,7 +21,7 @@ btnAdd.addEventListener("click", ()=>{
 function getList(){
 
     if(inputList.value){
-  s
+  
         listStorage.push(inputList.value)
         // console.log(listStorage)
     
