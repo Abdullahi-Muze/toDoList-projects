@@ -204,12 +204,26 @@ body{
         grid-template-columns: 40% 60%;
         grid-template-rows: 1fr 1fr 1fr;
         gap: 2%;
-        margin-bottom: 10px;
+        margin-bottom: -25px;
+        background-color: yellow;
       
+    }
+    .form .tasks .task p{
+        padding: 8px;
+        font-size:2em ;
+        background-color: rgb(243, 242, 242);
+        border-radius: 3px;
+
+    }
+    .form .tasks .task small{
+        padding: 5px;
+        font-size:1.5em ;
+        background-color: rgb(185, 184, 184);
+        border-radius: 3px;
     }
     .form .tasks button{
         padding: 5px;
-        font-size:1.08em ;
+        font-size:1.5em ;
         background-color: rgb(201, 36, 36);
         border: none;
         color: white;
