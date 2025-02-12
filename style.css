@@ -168,6 +168,14 @@ body{
 /* oppo A16s */
 
 @media (min-width:284px) and (max-width:575px){
+    .form{
+        background-color: #ffffff;
+        height:auto;
+        width: auto;
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+    }
     .inputInfo{
         display: grid;
         grid-template-columns: 100%;
