@@ -13,8 +13,8 @@ let dayNumber = now.getDate().toString().padStart(2, "0"); // 09
 let dayName = now.toLocaleDateString("en-US", { weekday: "long" }); // "Friday"
 date.textContent=`${dayName}, ${dayNumber}`
 
-let listStorage=[];
-// console.log(listStorage)
+let listStorage=JSON.parse(localStorage.getItem("listStorage")) || [];
+
 getList()
 
 
@@ -22,6 +22,7 @@ getList()
 btnAdd.addEventListener("click", ()=>{
     if(inputList.value){
         listStorage.push(inputList.value)
+        localStorage.setItem("listStorage",JSON.stringify(listStorage))
         getList()
     }        else{
     pendingNote.innerHTML=
@@ -32,6 +33,8 @@ btnAdd.addEventListener("click", ()=>{
     
 }
 )
+
+
 
 function getList(){
 
@@ -44,7 +47,9 @@ function getList(){
                         <p>${list}</p>
                         <button class="btnDelete" 
                         onclick="
-                        listStorage.splice(${i}, 1)
+                         listStorage.splice(${i}, 1)
+                         localStorage.removeItem('listStorage')
+                         console.log(listStorage)
                         getList()
                         "
                         >Delete</button>
@@ -76,6 +81,6 @@ containerHtml.innerHTML= arrangeList
 trashAll.addEventListener("click", ()=>{
 
     listStorage.splice(0, listStorage.length)
+    localStorage.removeItem("listStorage")
     getList()
-    console.log(listStorage)
 })
