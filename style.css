@@ -209,9 +209,10 @@ body{
     }
     .form .tasks .task p{
         padding: 8px;
-        font-size:2em ;
+        font-size:1.5em ;
         background-color: rgb(243, 242, 242);
         border-radius: 3px;
+        width: 60%;
 
     }
     .form .tasks .task small{
