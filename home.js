@@ -1,24 +1,23 @@
 let inputList= document.querySelector(".js-inputList")
 let btnAdd= document.querySelector(".js-btnAd")
 let containerHtml=  document.querySelector(".js-containerHtml")
-let pendingNote= document.querySelector("footer")
+let pendingNote= document.querySelector(".pendingConatiner")
 let date= document.querySelector(".js-date")
-let btnDeletes= document.querySelectorAll('#btnDelete')
-console.log(btnDeletes)
+let trashAll= document.querySelector(".trashAll")
 
 
-btnDeletes.forEach(btnDelete =>{
-    console.log(btnDelete[1])
-})
+
 
 let now = new Date();
 let dayNumber = now.getDate().toString().padStart(2, "0"); // 09
 let dayName = now.toLocaleDateString("en-US", { weekday: "long" }); // "Friday"
 date.textContent=`${dayName}, ${dayNumber}`
 
-let listStorage=["go to shop", "buy a mango", "call my father"];
-console.log(listStorage)
+let listStorage=[];
+// console.log(listStorage)
 getList()
+
+
 
 btnAdd.addEventListener("click", ()=>{
     if(inputList.value){
@@ -36,19 +35,19 @@ btnAdd.addEventListener("click", ()=>{
 
 function getList(){
 
-
-    // if(listStorage || inputList.value){
-        // listStorage.push(inputList.value)
-        // console.log(listStorage)
-    
-        let arrangeList=[];
+    let arrangeList=[];
 
 
-        listStorage.forEach(list=>{
+        listStorage.forEach((list, i )=>{
             list= `  <div class="task">
                         <small>${dayName}, ${dayNumber}</small>
                         <p>${list}</p>
-                        <button id="btnDelete">Delete</button>
+                        <button class="btnDelete" 
+                        onclick="
+                        listStorage.splice(${i}, 1)
+                        getList()
+                        "
+                        >Delete</button>
                     </div>
                   `
     
@@ -60,17 +59,7 @@ function getList(){
 
         displayList(arrangeList)
         inputList.value=''
-
-                    //   }  
-        //                  else{
-        // pendingNote.innerHTML=
-        //  `  
-        //  <p style= "text-align: right; color:red;"> Sorry input note is empty!</p>
-        // `
-        //                       }
-
-
-        console.log(btnDelete)                  
+                
 }
 
 
@@ -78,10 +67,15 @@ function displayList(arrangeList){
     pendingNote.innerHTML=
     `
         <p>you have ${listStorage.length} pending tasks </p>
-        <button>clear All</button>
     `
 containerHtml.innerHTML= arrangeList
 }
 
 
-console.log("hi")
+
+trashAll.addEventListener("click", ()=>{
+
+    listStorage.splice(0, listStorage.length)
+    getList()
+    console.log(listStorage)
+})
