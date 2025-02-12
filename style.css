@@ -205,7 +205,6 @@ body{
         grid-template-rows: 1fr 1fr 1fr;
         gap: 2%;
         margin-bottom: -25px;
-        background-color: yellow;
       
     }
     .form .tasks .task p{
