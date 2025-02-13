@@ -22,7 +22,7 @@ getList()
 btnAdd.addEventListener("click", ()=>{
     if(inputList.value){
         listStorage.push(inputList.value)
-        localStorage.setItem("listStorage",JSON.stringify(listStorage))
+      localStorageGeT()
         getList()
     }        else{
     pendingNote.innerHTML=
@@ -43,8 +43,11 @@ function getList(){
 
         listStorage.forEach((list, i )=>{
             list= `  <div class="task">
-                        <small>${dayName}, ${dayNumber}</small>
+                        <small> ${dayName}, ${dayNumber}</small>
                         <p>${list}</p>
+                        <button class="btnEdit">edit</button>
+
+
                         <button class="btnDelete" 
                         onclick="
                          listStorage.splice(${i}, 1)
@@ -84,3 +87,12 @@ trashAll.addEventListener("click", ()=>{
     localStorage.removeItem("listStorage")
     getList()
 })
+
+
+function localStorageGeT(){
+    localStorage.setItem("listStorage",JSON.stringify(listStorage))
+}
+
+
+
+
