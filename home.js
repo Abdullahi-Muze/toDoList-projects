@@ -4,6 +4,8 @@ let containerHtml=  document.querySelector(".js-containerHtml")
 let pendingNote= document.querySelector(".pendingConatiner")
 let date= document.querySelector(".js-date")
 let trashAll= document.querySelector(".trashAll")
+let btnAddCon= document.querySelector(".btnAddCon")
+
 
 
 
@@ -45,8 +47,14 @@ function getList(){
             list= `  <div class="task">
                         <small> ${dayName}, ${dayNumber}</small>
                         <p>${list}</p>
-                        <button class="btnEdit">edit</button>
+                        <button class="btnEdit"
+                            onclick="
+                                editNote(${list , i})
 
+
+                            "
+                        >edit</button>
+                       
 
                         <button class="btnDelete" 
                         onclick="
@@ -93,6 +101,27 @@ function localStorageGeT(){
     localStorage.setItem("listStorage",JSON.stringify(listStorage))
 }
 
+
+
+function editNote(list, i, store){
+    btnAddCon.innerHTML=" <button class='btnUpdate'>Edit Note</button>" 
+    let btnUpdate= document.querySelector(".btnUpdate")
+   console.log(btnUpdate)
+    btnUpdate.addEventListener("click", ()=>{
+        if(inputList.value){
+                listStorage.splice(i, 1)
+                localStorage.removeItem('listStorage')
+                console.log(listStorage)
+                listStorage.push(inputList.value)
+                btnUpdate.remove()
+                document.querySelector(".btnAddCon").appendChild(btnAdd)
+                 getList()
+            }
+            
+    })
+
+  
+}
 
 
 
