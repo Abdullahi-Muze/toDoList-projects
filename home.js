@@ -46,11 +46,25 @@ function getList(){
         listStorage.forEach((list, i )=>{
             list= `  <div class="task">
                         <small> ${dayName}, ${dayNumber}</small>
-                        <p>${list}</p>
+                       <input class="textNote js-textNOte" name="" data-id="${i}" value="${list}">
                         <button class="btnEdit"
                             onclick="
-                                editNote(${list , i})
-
+                                
+                                    let textNote= document.querySelectorAll('.js-textNOte')
+                                    // console.log(textNote.dataset.id)
+                                    
+                                    textNote.forEach((note)=>{
+                                        if(${i} == note.dataset.id){
+                                        console.log(note.value) 
+                                        listStorage[${i}]=note.value
+                                        console.log(listStorage)
+                                        localStorageGeT()
+                                        getList()
+                                        }
+                                            
+                                        })
+                                        
+                                    
 
                             "
                         >edit</button>
@@ -103,24 +117,28 @@ function localStorageGeT(){
 
 
 
-function editNote(list, i, store){
-    btnAddCon.innerHTML=" <button class='btnUpdate'>Edit Note</button>" 
-    let btnUpdate= document.querySelector(".btnUpdate")
-   console.log(btnUpdate)
-    btnUpdate.addEventListener("click", ()=>{
-        if(inputList.value){
-                listStorage.splice(i, 1)
-                localStorage.removeItem('listStorage')
-                console.log(listStorage)
-                listStorage.push(inputList.value)
-                btnUpdate.remove()
-                document.querySelector(".btnAddCon").appendChild(btnAdd)
-                 getList()
-            }
-            
-    })
+function editNote(list, i){
+    // btnUpdate.addEventListener("click", ()=>{
+    //     // if(inputList.value){
+    //     //         listStorage.splice(i, 1)
+    //     //         localStorage.removeItem('listStorage')
+    //     //         console.log(listStorage)
+    //     //         listStorage.push(inputList.value)
+    //     //         btnUpdate.remove()
+    //     //         document.querySelector(".btnAddCon").appendChild(btnAdd)
+    //     //          getList()
+    //     //     }
 
-  
+
+
+    //         console.log(document.querySelector(".js-textNOte").value)
+    //     inputList.value= document.querySelector(".js-textNOte").value
+
+    // })
+    // listStorage[${i}]=document.querySelector('.js-textNOte').value
+    // console.log( "waa kanaa ", listStorage[list])
+
+    // localStorageGeT()
 }
 
 
