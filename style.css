@@ -147,7 +147,7 @@ body{
         width: 100%;
         border-radius: 5px;
     }
-    .inputInfo{
+    .form .inputInfo{
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 1fr 0.7fr ;
@@ -224,7 +224,7 @@ body{
         width: 100%;
         border-radius: 5px;
     }
-    .inputInfo{
+    .form .inputInfo{
         display: grid;
         grid-template-columns: 100%;
         grid-template-rows: 1fr 0.7fr ;
